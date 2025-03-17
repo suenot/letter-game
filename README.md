@@ -27,7 +27,7 @@
 
 1. Клонируйте репозиторий:
 ```bash
-git clone [url-репозитория]
+git clone https://github.com/suenot/letter-game
 cd letter-game
 ```
 
