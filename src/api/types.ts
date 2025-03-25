@@ -61,9 +61,9 @@ export interface ApiResponse<T> {
 }
 
 export interface ApiError {
-  message: string;
+  message: string | React.ReactNode;
   code?: string;
-  details?: unknown;
+  details?: Record<string, unknown> | string;
 }
 
 export interface PaginatedResponse<T> {
