@@ -1,6 +1,6 @@
 import { API_ENDPOINTS } from './config';
 import api, { handleApiError } from './api';
-import { ApiResponse, LetterStat, PaginatedResponse, Profile, Progress, Topic, Word } from './types';
+import { ApiResponse, GameSettings, LetterStat, PaginatedResponse, Profile, Progress, Topic, Word } from './types';
 
 export const gameService = {
   // Topics
@@ -100,6 +100,25 @@ export const gameService = {
   deleteProfile: async (id: number): Promise<void> => {
     try {
       await api.delete(`${API_ENDPOINTS.PROFILES}${id}/`);
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Settings
+  getSettings: async (): Promise<GameSettings> => {
+    try {
+      const response = await api.get<GameSettings>(API_ENDPOINTS.SETTINGS);
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  updateSettings: async (data: Partial<GameSettings>): Promise<GameSettings> => {
+    try {
+      const response = await api.patch<GameSettings>(API_ENDPOINTS.SETTINGS, data);
+      return response.data;
     } catch (error) {
       throw handleApiError(error);
     }

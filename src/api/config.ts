@@ -14,6 +14,7 @@ export const API_ENDPOINTS = {
   AUDIO: '/api/audio/',
   LETTER_STATS: '/api/letter-stats/',
   PROFILES: '/api/profiles/',
+  SETTINGS: '/api/settings/',
 } as const;
 
 // Axios config

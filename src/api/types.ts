@@ -72,3 +72,14 @@ export interface PaginatedResponse<T> {
   previous: string | null;
   results: T[];
 }
+
+export interface GameSettings {
+  id: number;
+  user: number;
+  uppercase_enabled: boolean;
+  lowercase_enabled: boolean;
+  show_images: boolean;
+  sound_effects_enabled: boolean;
+  created_at: string;
+  updated_at: string;
+}
